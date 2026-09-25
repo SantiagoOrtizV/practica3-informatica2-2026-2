@@ -2,6 +2,7 @@
 #include <string>
 #include "lz78.h"
 #include "rle.h"
+#include "encriptacion.h"
 #include "funciones.h"
 
 using namespace std;
@@ -35,7 +36,7 @@ int main(){
     descompresion_rle(ptr1, l1, ptr11, l11);
     cout << ptr11 << " " << l11 << endl;
 
-    cout << endl;
+    cout << endl; /////////
 
     unsigned char ejemplo2[17] = "AAABBBBBAACCCDDD";
     unsigned char *ptr2, *ptr22;
@@ -46,5 +47,19 @@ int main(){
     descompresion_rle(ptr2, l2, ptr22, l22);
     cout << ptr22 << " " << l22 << endl;
 
-    cout << endl;
+    cout << endl; /////////
+
+    unsigned char mensaje[11] = "HOLA MUNDO";
+    unsigned char clave[11] = {0x12, 0x34, 0x56, 0x78,
+                              0x9A, 0xBC, 0xDE, 0xF0,
+                              0x11, 0x22};
+    unsigned int l3 = 11;
+    unsigned short int nRot = 3;
+    cout << "Mensaje original: " << mensaje << endl;
+    encriptamiento(mensaje, l1, clave, nRot, true);
+    cout << "Mensaje encriptado: " << mensaje << endl;
+    encriptamiento(mensaje, l1, clave, nRot, false);
+    cout << "Mensaje desencriptado: " << mensaje << endl;
+
+    cout << endl; /////////
 }
