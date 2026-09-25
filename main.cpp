@@ -25,4 +25,26 @@ int main(){
     // - Desencriptar -> desencriptamiento(ptr, l1, &ptr2, &l2, clave, nRot);
 
     // - Texto a archivo. Ingresar nombre salida.
+
+    unsigned char ejemplo1[12] = "Hola Mundo!";
+    unsigned char *ptr1, *ptr11;
+    unsigned int l1, l11;
+    cout << ejemplo1 << endl;
+    compresion_rle(ejemplo1, 12, ptr1, l1);
+    cout << ptr1 << " " << l1 << endl;
+    descompresion_rle(ptr1, l1, ptr11, l11);
+    cout << ptr11 << " " << l11 << endl;
+
+    cout << endl;
+
+    unsigned char ejemplo2[17] = "AAABBBBBAACCCDDD";
+    unsigned char *ptr2, *ptr22;
+    unsigned int l2, l22;
+    cout << ejemplo2 << endl;
+    compresion_rle(ejemplo2, 17, ptr2, l2);
+    cout << ptr2 << " " << l2 << endl;
+    descompresion_rle(ptr2, l2, ptr22, l22);
+    cout << ptr22 << " " << l22 << endl;
+
+    cout << endl;
 }
